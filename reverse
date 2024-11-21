@@ -1,0 +1,23 @@
+def reverse_caesar_cipher(cipher_text):
+    original_text = ""
+    for char in cipher_text:
+        if char.isalpha():
+            if char.islower():
+                base = ord('a')
+                position = ord(char) - base
+                reverse_position = 25 - position
+                original_char = chr(base + reverse_position)
+            else:
+                base = ord('A')
+                position = ord(char) - base
+                reverse_position = 25 - position
+                original_char = chr(base + reverse_position)
+            original_text += original_char
+        else:
+            original_text += char  
+    return original_text
+
+# Ciphered input
+ciphered_text = "SVOOL DLIOW"
+decoded_text = reverse_caesar_cipher(ciphered_text)
+print(f"{decoded_text}")
